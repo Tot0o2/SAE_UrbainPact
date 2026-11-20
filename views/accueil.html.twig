@@ -1,4 +1,6 @@
-<!-- Bandeau principal -->
+{% extends 'layout.html.twig' %}
+
+{% block contenu %}
 <section class="hero text-white py-5">
     <div class="container py-4">
         <div class="row align-items-center g-4">
@@ -24,7 +26,6 @@
     </div>
 </section>
 
-<!-- Chiffres clés (exemples : seront calculés depuis la base) -->
 <section class="bg-light border-bottom py-4">
     <div class="container">
         <div class="row text-center g-3">
@@ -48,7 +49,6 @@
     </div>
 </section>
 
-<!-- Fonctionnement -->
 <section class="container py-5">
     <h2 class="text-center mb-2">Comment ça marche ?</h2>
     <p class="text-center text-muted mb-5">Trois étapes pour faire bouger votre quartier.</p>
@@ -92,7 +92,6 @@
     </div>
 </section>
 
-<!-- Catégories -->
 <section class="bg-light py-5">
     <div class="container">
         <h2 class="text-center mb-2">Que pouvez-vous signaler ?</h2>
@@ -144,7 +143,6 @@
     </div>
 </section>
 
-<!-- Derniers signalements (exemples : seront chargés depuis la base) -->
 <section class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">Signalements les plus soutenus</h2>
@@ -210,7 +208,6 @@
     </div>
 </section>
 
-<!-- Appel à l'inscription -->
 <section class="container pb-5">
     <div class="appel rounded-4 text-white text-center p-5">
         <h2 class="fw-bold">Rejoignez la communauté UrbainPact</h2>
@@ -223,3 +220,4 @@
         </a>
     </div>
 </section>
+{% endblock %}
