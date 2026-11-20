@@ -1,0 +1,25 @@
+.logo {
+    height: 48px;
+    width: auto;
+}
+
+.hero {
+    background: linear-gradient(135deg, #198754, #0f5132);
+}
+
+.hero-icone {
+    font-size: 12rem;
+    opacity: 0.85;
+}
+
+.appel {
+    background: linear-gradient(135deg, #198754, #0f5132);
+}
+
+.categorie {
+    transition: transform 0.2s;
+}
+
+.categorie:hover {
+    transform: translateY(-4px);
+}
