@@ -1,0 +1,9 @@
+{
+  "name": "urbainpact",
+  "private": true,
+  "description": "Dépendances front de UrbainPact",
+  "dependencies": {
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "1.11.3"
+  }
+}
