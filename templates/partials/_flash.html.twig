@@ -1,0 +1,10 @@
+{% if flashs is not empty %}
+<div class="container mt-3">
+    {% for flash in flashs %}
+    <div class="alert alert-{{ flash.type }} alert-dismissible fade show" role="alert">
+        {{ flash.message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

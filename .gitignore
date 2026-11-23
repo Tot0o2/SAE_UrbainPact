@@ -1,4 +1,12 @@
-config/config.php
+# Dépendances Composer
+vendor/
+
+# Dépendances npm (Bootstrap)
+node_modules/
+
+# Identifiants BDD (copier config.example.json)
+config/config.json
+
+# Photos envoyées par les utilisateurs
 uploads/*
 !uploads/.gitkeep
-vendor/
