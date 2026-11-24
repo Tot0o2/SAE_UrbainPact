@@ -7,17 +7,41 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    // 3. Points de départ
-    const points = [
-        { nom: "Cathédrale Sainte-Marie", lat: 43.4906, lng: -1.4755 },
-        { nom: "Château-Vieux",           lat: 43.4921, lng: -1.4731 }
-    ];
+    // 4. Récupération des signalements depuis la base de données
+    fetch('index.php?page=carte&action=signalements')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur HTTP : ' + response.status);
+            }
+            return response.json();
+        })
+        .then(signalements => {
+            signalements.forEach(signalement => {
+                const latitude = Number(signalement.latitude);
+                const longitude = Number(signalement.longitude);
 
-    points.forEach(p => {
-        L.marker([p.lat, p.lng]).addTo(map).bindPopup('<b>' + p.nom + '</b>');
-    });
+                if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+                    return;
+                }
 
-    // 4. Ajouter un point au clic
+                const contenu = `
+                    <b>${signalement.titre}</b><br>
+                    ${signalement.description}<br>
+                    <b>Catégorie :</b> ${signalement.categorie}<br>
+                    <b>Statut :</b> ${signalement.statut}<br>
+                    <b>Votes :</b> ${signalement.nb_votes}
+                `;
+
+                L.marker([latitude, longitude])
+                    .addTo(map)
+                    .bindPopup(contenu);
+            });
+        })
+        .catch(error => {
+            console.error('Impossible de charger les signalements :', error);
+        });
+
+    // 5. Ajouter un point au clic
     map.on('click', (e) => {
         const lat = e.latlng.lat;
         const lng = e.latlng.lng;
