@@ -6,12 +6,9 @@ namespace App\Modeles;
 
 use App\Core\Database;
 
-/**
- * Accès à la table utilisateur.
- */
+
 class UtilisateurModele
 {
-    /** Retourne l'utilisateur correspondant à l'email, ou null. */
     public function trouverParEmail(string $email): ?array
     {
         $utilisateur = Database::requete(
@@ -22,7 +19,6 @@ class UtilisateurModele
         return $utilisateur ?: null;
     }
 
-    /** Crée un compte citoyen et retourne son id. */
     public function creer(string $nom, string $prenom, string $email, string $motDePasse, string $ville): int
     {
         Database::requete(

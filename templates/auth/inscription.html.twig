@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<section class="container py-5" style="max-width: 560px;">
+    <h1 class="h3 mb-4 text-center">Créer un compte</h1>
+
+    {% if erreurs is not empty %}
+    <div class="alert alert-danger">
+        {% for erreur in erreurs %}<div>{{ erreur }}</div>{% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="post" action="index.php?page=auth&amp;action=inscription" class="card card-body shadow-sm">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="prenom" class="form-label">Prénom</label>
+                <input type="text" id="prenom" name="prenom" class="form-control" value="{{ valeurs.prenom }}" maxlength="80" required>
+            </div>
+            <div class="col-md-6">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="{{ valeurs.nom }}" maxlength="80" required>
+            </div>
+            <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" value="{{ valeurs.email }}" maxlength="180" required>
+            </div>
+            <div class="col-12">
+                <label for="ville" class="form-label">Ville</label>
+                <input type="text" id="ville" name="ville" class="form-control" value="{{ valeurs.ville }}" maxlength="100" required>
+            </div>
+            <div class="col-md-6">
+                <label for="mot_de_passe" class="form-label">Mot de passe</label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control" minlength="8" required>
+            </div>
+            <div class="col-md-6">
+                <label for="confirmation" class="form-label">Confirmation</label>
+                <input type="password" id="confirmation" name="confirmation" class="form-control" minlength="8" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success w-100 mt-4">S'inscrire</button>
+    </form>
+
+    <p class="text-center mt-3">
+        Déjà inscrit ? <a href="index.php?page=auth&amp;action=connexion">Connectez-vous</a>
+    </p>
+</section>
+{% endblock %}
