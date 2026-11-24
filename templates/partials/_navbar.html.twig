@@ -14,8 +14,18 @@
                 <li class="nav-item"><a class="nav-link" href="index.php?page=signalement&amp;action=liste">Signalements</a></li>
             </ul>
             <ul class="navbar-nav">
+                {% if auth.connecte %}
+                <li class="nav-item">
+                    <form method="post" action="index.php?page=auth&amp;action=deconnexion" class="d-inline">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2 mt-lg-0">
+                            <i class="bi bi-box-arrow-right"></i> Déconnexion
+                        </button>
+                    </form>
+                </li>
+                {% else %}
                 <li class="nav-item"><a class="nav-link" href="index.php?page=auth&amp;action=connexion">Connexion</a></li>
                 <li class="nav-item"><a class="btn btn-success btn-sm ms-lg-2 mt-2 mt-lg-0" href="index.php?page=auth&amp;action=inscription">Inscription</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
