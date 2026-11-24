@@ -16,7 +16,7 @@ define('RACINE', __DIR__);
 
 require_once RACINE . '/vendor/autoload.php';
 
-session_start();
+require_once RACINE . '/classes/Core/Database.php';
 
 $page   = $_GET['page']   ?? 'accueil';
 $action = $_GET['action'] ?? 'index';
